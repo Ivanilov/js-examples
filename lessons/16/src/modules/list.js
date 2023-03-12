@@ -1,4 +1,4 @@
-import { clearInput, input } from "./input";
+import { clearInput } from "./input";
 
 const listDOM = document.querySelector('#list');
 
@@ -25,7 +25,7 @@ const createItemRemoveBtn = () => {
     const span = document.createElement('span');
     span.textContent = 'X';
     span.classList.add('close');
-    span.addEventListener('click', onRemove)
+    span.addEventListener('click', onRemove);
     return span;
 };
 
@@ -64,11 +64,12 @@ const updateStorageList = () => {
     let elements = [...listDOM.children];
     elements = elements.filter(element => element.style.display !== 'none').map(element => ({
         text: element.firstChild.textContent,
-        checked : element.classList.contains('checked')
+        checked: element.classList.contains('checked')
     }));
     const list = {
-        elements
+        elements: elements
     };
+    // { elements: [{ text: 'Bla', checked: false }, { text: 'Test', checked: true }] }
 
     localStorage.setItem('list', JSON.stringify(list));
 };
