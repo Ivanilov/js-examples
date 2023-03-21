@@ -64,3 +64,12 @@ h1 {
 .search-form button[type="submit"]:hover {
   background-color: #0069d9;
 }
+
+.total {
+  display: flex;
+  margin-top: 10px;
+}
+
+.load {
+  display: none;
+}

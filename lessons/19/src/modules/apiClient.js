@@ -1,7 +1,10 @@
-export const getNews = (search) => {
+export const getNews = (search, page) => {
     const params = new URLSearchParams({
         q: search,
-        apiKey: process.env.NEWS_API_KEY
+        apiKey: process.env.NEWS_API_KEY,
+        pageSize: 10,
+        page,
+        sortBy: 'publishedAt'
     });
     return fetch(`https://newsapi.org/v2/everything?${params.toString()}`)
         .then(response => {
